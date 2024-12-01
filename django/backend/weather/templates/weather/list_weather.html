@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Погода{% endblock %}
+
+
+{% block content %}
+
+
+
+{% for city in weather_data%}
+
+    {{ city }} <br>
+
+{% endfor %}
+
+
+{% endblock %}

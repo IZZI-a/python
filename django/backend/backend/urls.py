@@ -24,6 +24,8 @@ urlpatterns = [
     path("", include("blog.urls", namespace="blog")),
     path("my-book/", include("book.urls", namespace="book")),
     path("admin/", admin.site.urls),
+    path("weather/", include("weather.urls", namespace="weather")),
+ 
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
