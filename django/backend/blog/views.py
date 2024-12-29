@@ -20,9 +20,9 @@ def post_list(request):
     """
     Представления для получения всех постов
     """
-    filter_category = request.GET.get('filter')
+    filter_category = request.GET.get('category')
     if filter_category:
-        posts = Post.objects.filter(published_date__isnull=False, category=filter_category)
+        posts = Post.objects.filter(published_date__isnull=False, category__name=filter_category)
     else:
         posts = Post.objects.filter(published_date__isnull=False)
     category = Category.objects.all()
@@ -46,9 +46,9 @@ def news(request):
     return HttpResponse("Новость 1")
 
 
-def main(request):
+# def main(request):
 
-    all_posts = Post.objects.all()
+#     all_posts = Post.objects.all()
 
-    context = {"user_name": "Denis", "message": "Hello World", "posts": all_posts}
-    return render(request, "blog/main.html", context)
+#     context = {"user_name": "Denis", "message": "Hello World", "posts": all_posts}
+#     return render(request, "blog/main.html", context)

@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.conf import settings
 from django.core.validators import FileExtensionValidator
 
+
 # После того, как создали новую таблицу, необходимо выполнить команду
 # python manage.py makemigrations --name "create_post"
 # python manage.py migrate
@@ -28,12 +29,11 @@ class Post(models.Model):
         blank=True,
         null=True,
     )
-
     image = models.ImageField(
         "Превью поста",
         blank=True,
         null=True,
-        upload_to="images/tumbnails/%Y/%m/%d",
+        upload_to="images/thumbnails/%Y/%m/%d/",
         validators=[
             FileExtensionValidator(allowed_extensions=("png", "jpg", "webp", "gif"))
         ],

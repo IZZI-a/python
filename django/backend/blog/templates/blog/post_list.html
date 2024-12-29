@@ -1,15 +1,12 @@
 {% extends "blog/base.html" %}
 
-{% block title %}Django blog{% endblock %}
+{% block title %}Django блог{% endblock %}
 {% block content %}
 
 
-
-
 <div class="row ">
-
+    <!-- Blog entries-->
     <div class="col-lg-8">
-
         <div class="row">
         {% for post in posts %}
             <div class="col-6">
@@ -19,9 +16,7 @@
             {% endfor %}
         </div>
 
-
-
-
+        <!-- Pagination-->
         <nav aria-label="Pagination">
             <hr class="my-0">
             <ul class="pagination justify-content-center my-4">
@@ -35,27 +30,27 @@
             </ul>
         </nav>
     </div>
-
+    <!-- Side widgets-->
     <div class="col-lg-4">
-  
+        <!-- Search widget-->
         <div class="card mb-4">
             <div class="card-header">Поиск</div>
             <div class="card-body">
                 <div class="input-group">
                     <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search">
-                    <button class="btn btn-primary" id="button-search" type="button">Найти</button>
+                    <button class="btn btn-primary" id="button-search" type="button">Поиск!</button>
                 </div>
             </div>
         </div>
-     
+        <!-- Categories widget-->
         <div class="card mb-4">
             <div class="card-header">Категории</div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-6">
                         <ul class="list-unstyled mb-0">
-                            {% for cat in category %}
-                                <li><a href="?filter={{ cat.pk }}">{{cat}}</a></li>
+                            {% for categor in category %}
+                                <li><a href="?category={{ categor.name }}">{{categor.name}}</a></li>
                             {% endfor %}
                         </ul>
                     </div>
